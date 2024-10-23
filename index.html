@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="master.css">
+    <title>HangMan Game</title>
+</head>
+<body>
+    <div class="continar">
+        <div class="game-info">
+            <div class="game-name">HamgMan</div>
+            <div class="word-categori">
+                Word From: <span></span>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="hangMan-drow">
+                <div class="the-drow">
+                    <div class="stand"></div>
+                    <div class="hang"></div>
+                    <div class="rope"></div>
+                    <div class="man">
+                        <div class="head"></div>
+                        <div class="body"></div>
+                        <div class="hands"></div>
+                        <div class="legs"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="letters"></div>
+        </div>
+        <hr>
+        <div class="letters-guess"></div>
+    </div>
+    <audio id="game-over" src="audios/Game Over sound effect(MP3_128K).mp3" preload="auto"></audio>
+    <audio id="error" src="audios/Error - Sound Effect (HD)(MP3_128K).mp3" preload="auto"></audio>
+    <audio id="fail" src="audios/Fail - sound effect(MP3_128K).mp3" preload="auto"></audio>
+    <audio id="success" src="audios/Success Sound Effect(MP3_128K).mp3" preload="auto"></audio>
+    <script src="main.js"></script>
+</body>
+</html>

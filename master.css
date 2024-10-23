@@ -1,0 +1,282 @@
+:root{
+    --main-border-color : #222;
+    --main-border-width : 4px
+}
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+hr{
+    border: 1px solid #aaa;
+}
+.continar{
+    margin: 25px auto;
+    width: 900px;
+}
+.game-info{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
+}
+/* .game-name{
+    flex: 1;
+}
+.word-categori{
+    flex: 1;
+    text-align: right;
+} */
+.word-categori span{
+    text-transform: capitalize;
+    color: #E91E63;
+    font-weight: bold;
+}
+.row{
+    display: flex;
+}
+.hangMan-drow{
+    flex: 1;
+    background-color: #F8F8F8;
+    height: 380px;
+    padding: 20px;
+    width: 100%;
+}
+.hangMan-drow .the-drow {
+    width: 80px;
+    height: 280px;
+    position: relative;
+    margin: auto;
+    border-bottom: var(--main-border-width) solid var(--main-border-color);
+    display: none;
+}
+.hangMan-drow.wrong-1 .the-drow {
+    display: block;
+}
+.hangMan-drow .the-drow .stand {
+    height: 100%;
+    background-color: var(--main-border-color);
+    width: var(--main-border-width);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+}
+.hangMan-drow.wrong-2 .stand {
+    display: block;
+}
+.hangMan-drow .the-drow .hang{
+    display: none;
+}
+.hangMan-drow.wrong-3 .hang {
+    display: block;
+}
+.hangMan-drow .the-drow .hang::before{
+    content: '';
+    position: absolute;
+    width: 125px;
+    height: var(--main-border-width);
+    background-color: var(--main-border-color);
+    left: 40px;
+}
+.hangMan-drow .the-drow .hang::after{
+    content: '';
+    position: absolute;
+    width: var(--main-border-width);
+    height: 50px;
+    background-color: var(--main-border-color);
+    left: 161px;
+    top: 4px;
+
+}
+.hangMan-drow .the-drow .rope{
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    border-radius: 50%;
+    border: var(--main-border-width) dotted var(--main-border-color);
+    left: 130px;
+    top: 54px; 
+    display: none;
+}
+.hangMan-drow.wrong-4 .rope {
+    display: block;
+}
+.man .head{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--main-border-color);
+    position: absolute;
+    left: 140px;
+    top: 71px;
+    display: none;
+}
+.hangMan-drow.wrong-5 .head {
+    display: block;
+}
+.man .body{
+    height: 100px;
+    width: var(--main-border-width);
+    background-color: var(--main-border-color);
+    position: absolute;
+    left: 165px;
+    top: 120px;
+    display: none;
+}
+.hangMan-drow.wrong-6 .body {
+    display: block;
+}
+.man .hands{
+    display: none;
+}
+.hangMan-drow.wrong-7 .hands {
+    display: block;
+}
+.man .hands::before,
+.man .hands::after{
+    width: 60px;
+    height: var(--main-border-width);
+    background-color: var(--main-border-color);
+    position: absolute;
+    content: '';
+    top: 145px;
+}
+.man .hands::before{
+    left: 110px;
+    transform: rotate(25deg);
+}
+.man .hands::after{
+    left: 165px;
+    transform: rotate(-25deg);
+}
+.man .legs{
+    display: none;
+}
+.hangMan-drow.wrong-8 .legs {
+    display: block;
+}
+.hangMan-drow.wrong-8 .legs::before,
+.hangMan-drow.wrong-8 .legs::after,
+.hangMan-drow.wrong-8 .hands::after,
+.hangMan-drow.wrong-8 .hands::before,
+.hangMan-drow.wrong-8 .body,
+.hangMan-drow.wrong-8 .head
+{
+    background-color: red;
+}
+.man .legs::before,
+.man .legs::after{
+    width: 60px;
+    height: var(--main-border-width);
+    background-color: var(--main-border-color);
+    position: absolute;
+    content: '';
+    top: 228px;
+}
+.man .legs::before{
+    left: 110px;
+    transform: rotate(-25deg);
+}
+.man .legs::after{
+    left: 165px;
+    transform: rotate(25deg);
+}
+
+.letters{
+    flex: 1;
+    padding: 15px;
+    text-align: center;
+}
+.letters .letter {
+    width: 50px;
+    height: 50px;
+    background-color: #009688;
+    color: #fff;
+    margin: 0 10px 10px 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.letters .letter.cliked{
+    background-color: #222;
+    opacity: 0.3;
+    pointer-events: none;
+}
+.letters .letter:hover{
+    transform: translateY(-5px);
+    background-color: red;
+}
+.letters.finished{
+    pointer-events: none;
+}
+.letters-guess{
+    margin:  auto;
+    background-color: #f8f8f8;
+    padding: 15px;
+    min-height: 100px;
+    text-align: center;
+    
+}
+.letters-guess .word-letter {
+    width: 50px;
+    height: 50px;
+    border-bottom: var(--main-border-width) solid var(--main-border-color);
+    background-color: #fff;
+    margin: 0 10px 0 0;
+    padding: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+.letters-guess .spaceChar{
+    border: none;
+    position: relative;
+}
+.letters-guess .spaceChar::before {
+    content: "";
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    width: 8px;
+    height: var(--main-border-width);
+    background-color: #009688
+    
+}
+.game-over,
+.win-game{
+    background-color: #009688;
+    color: white;
+    padding: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    width: 80%;
+    position: fixed;
+    top: 50%;
+    left: 91px;
+    text-align: center;
+    border-radius: 8px;
+}
+.option-dive{
+    margin-top: 10px;
+}
+.restart-buttun,
+.exit-buttun{
+    padding: 10px;
+    margin-right: 15px;
+    background-color: red;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
